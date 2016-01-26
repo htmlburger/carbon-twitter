@@ -1,0 +1,19 @@
+{
+    "name": "2create/twitter-helper",
+    "description": "Helper library for retrieving information from the Twitter API.",
+    "type": "library",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "2create Studio",
+            "email": "info@2create.bg"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "files": [
+            "TwitterHelper.php",
+            "functions.php"
+        ]
+    }
+}
