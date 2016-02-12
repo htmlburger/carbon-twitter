@@ -9,7 +9,9 @@
             "email": "info@2create.bg"
         }
     ],
-    "require": {},
+    "require": {
+        "htmlburger/carbon-fields": "1.0.*"
+    },
     "autoload": {
         "files": [
             "TwitterHelper.php",
