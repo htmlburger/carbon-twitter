@@ -13,7 +13,8 @@
     "autoload": {
         "files": [
             "TwitterHelper.php",
-            "functions.php"
+            "functions.php",
+            "options.php"
         ]
     }
 }
