@@ -9,7 +9,7 @@ This plugin requires the following `Theme Options`:
 
 ```php
 if ( function_exists('carbon_twitter_widget_registered') && carbon_twitter_widget_registered() ) {
-	Carbon_Container::factory('theme_options', 'Twitter Settings')
+	Container::make('theme_options', 'Twitter Settings')
 		->set_page_parent(__('Theme Options', 'crb'))
 		->add_fields(array(
 			Field::make('html', 'crb_twitter_settings_html')
