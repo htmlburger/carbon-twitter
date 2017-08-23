@@ -10,7 +10,8 @@
         }
     ],
     "require": {
-        "htmlburger/carbon-fields": "1.1.*"
+        "htmlburger/carbon-fields": "1.1.*",
+        "j7mbo/twitter-api-php": "^1.0"
     },
     "autoload": {
         "files": [
