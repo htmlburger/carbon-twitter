@@ -25,10 +25,10 @@ abstract class Abstract_Cache {
 	 * Writes to Cache.
 	 *
 	 * @abstract
-	 * 
+	 *
 	 * @param  string  $key
 	 * @param  mixed   $value
-	 * 
+	 *
 	 * @return boolean
 	 */
 	abstract function write( $key, $value );
@@ -37,9 +37,9 @@ abstract class Abstract_Cache {
 	 * Reads from Cache.
 	 *
 	 * @abstract
-	 * 
+	 *
 	 * @param  string $key
-	 * 
+	 *
 	 * @return mixed
 	 */
 	abstract function read( $key );
@@ -49,7 +49,7 @@ abstract class Abstract_Cache {
 	 *
 	 * @access public
 	 * @static
-	 * 
+	 *
 	 * @return boolean
 	 */
 	public static function test() {

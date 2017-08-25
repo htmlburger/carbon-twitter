@@ -25,6 +25,13 @@ class Tweet {
 	public $link = null;
 
 	/**
+	 * Tweet Timestamp.
+	 *
+	 * @var string
+	 */
+	public $timestamp = null;
+
+	/**
 	 * Constructor.
 	 *
 	 * @access public
@@ -62,9 +69,8 @@ class Tweet {
 		$this->text = $this->remove_emoji( $this->text );
 		$this->add_links_to_text();
 
-		$this->link          = "https://twitter.com/{$this->user->name}/status/{$this->raw_data->id_str}";
-		$this->timestamp     = strtotime( $this->raw_data->created_at );
-		$this->time_distance = human_time_diff( $this->raw_data->timestamp, time() );
+		$this->link      = "https://twitter.com/{$this->raw_data->user->name}/status/{$this->raw_data->id_str}";
+		$this->timestamp = strtotime( $this->raw_data->created_at );
 
 		if ( isset( $this->raw_data->retweeted_status ) ) {
 			$this->image = $this->raw_data->retweeted_status->user->profile_image_url;

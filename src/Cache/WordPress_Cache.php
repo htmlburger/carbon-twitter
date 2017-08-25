@@ -8,7 +8,7 @@ class WordPress_Cache extends Abstract_Cache {
 	 *
 	 * @access public
 	 * @static
-	 * 
+	 *
 	 * @return boolean
 	 */
 	public static function test() {
@@ -21,10 +21,10 @@ class WordPress_Cache extends Abstract_Cache {
 	 * Sets a new Transient with the passed data.
 	 *
 	 * @access public
-	 * 
+	 *
 	 * @param  string $key       Transient Name
 	 * @param  mixed  $value     Transient Value
-	 * 
+	 *
 	 * @return boolean
 	 */
 	public function write( $key, $value ) {
@@ -37,9 +37,9 @@ class WordPress_Cache extends Abstract_Cache {
 	 * Returns the value of the Transient with the passed name.
 	 *
 	 * @access public
-	 * 
+	 *
 	 * @param  string $key  Transient Name
-	 * 
+	 *
 	 * @return mixed        The Transient Value if set and still valid. Otherwise, false.
 	 */
 	public function read( $key ) {

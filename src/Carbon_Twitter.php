@@ -12,7 +12,7 @@ use TwitterAPIExchange;
 class Carbon_Twitter {
 	/**
 	 * Cache Driver.
-	 * 
+	 *
 	 * @var Abstract_Cache
 	 */
 	protected $cache_driver = null;
@@ -26,7 +26,7 @@ class Carbon_Twitter {
 
 	/**
 	 * Twitter username.
-	 * 
+	 *
 	 * @var string
 	 */
 	public $username = null;
@@ -35,25 +35,25 @@ class Carbon_Twitter {
 	 * Twitter API credentials.
 	 *
 	 * @static
-	 * 
+	 *
 	 * @var string
 	 */
 	public static $settings = array();
 
 	/**
-	 * Cache Candidates.
+	 * Cache Drivers.
 	 *
 	 * @static
 	 *
 	 * @var array
 	 */
-	protected static $cache_candidates = [ 'WordPress', 'Files' ];
+	protected static $cache_drivers = [ 'WordPress', 'Files' ];
 
 	/**
 	 * Cache lifetime in seconds. Defaults to 300 seconds (5 minutes).
 	 *
 	 * @static
-	 * 
+	 *
 	 * @var integer
 	 */
 	public static $cache_lifetime = 300;
@@ -84,11 +84,11 @@ class Carbon_Twitter {
 	 * Sets up the Cache Driver.
 	 *
 	 * @access protected
-	 * 
+	 *
 	 * @return void
 	 */
 	protected function init_cache() {
-		foreach ( static::$cache_candidates as $candidate ) {
+		foreach ( static::$cache_drivers as $candidate ) {
 			$cache_class_name = __NAMESPACE__ . '\\Cache\\' . $candidate . '_Cache';
 
 			if ( $cache_class_name::test() ) {
@@ -104,7 +104,7 @@ class Carbon_Twitter {
 	 *
 	 * @access public
 	 *
-	 * @param Abstract_Cache $cache 
+	 * @param Abstract_Cache $cache
 	 */
 	public function set_cache_driver( Abstract_Cache $cache ) {
 		$this->cache_driver = $cache;
@@ -134,12 +134,12 @@ class Carbon_Twitter {
 	 *  - Consumer Secret (API Secret)
 	 *  - Access Token
 	 *  - Access Token Secret
-	 * 
+	 *
 	 * @return void
 	 */
 	public static function config( $settings = array() ) {
 		if ( ! isset( $settings['api'] ) ) {
-			$this->maybe_raise_error( 'Missing API Credentials' );
+			static::maybe_raise_error( 'Missing API Credentials' );
 
 			return;
 		}
@@ -159,12 +159,12 @@ class Carbon_Twitter {
 			static::$verbose = (bool) $settings['verbose'];
 		}
 
-		if ( isset( $settings['cache_candidates'] ) ) {
-			if ( ! is_array( $settings['cache_candidates'] ) ) {
-				$settings['cache_candidates'] = (array) $settings['cache_candidates'];
+		if ( isset( $settings['cache_drivers'] ) ) {
+			if ( ! is_array( $settings['cache_drivers'] ) ) {
+				$settings['cache_drivers'] = (array) $settings['cache_drivers'];
 			}
 
-			static::$cache_candidates = $settings['cache_candidates'];
+			static::$cache_drivers = $settings['cache_drivers'];
 		}
 	}
 
@@ -176,7 +176,7 @@ class Carbon_Twitter {
 	 *
 	 * @param  string  $username  The Username to pull the tweets from.
 	 * @param  int     $limit     The limit of tweets to fetch.
-	 * 
+	 *
 	 * @return array
 	 */
 	public static function get_tweets( $username, $limit ) {
@@ -195,10 +195,10 @@ class Carbon_Twitter {
 	 * Otherwise, performs a new Request.
 	 *
 	 * @access public
-	 * 
+	 *
 	 * @param  string  $request_url  The Endpoint from which the data will be fetched.
 	 * @param  array   $params       Additional parameters to pass to the endpoint.
-	 * 
+	 *
 	 * @return mixed
 	 */
 	public function _get_data( $request_url, $params = array() ) {
@@ -252,13 +252,14 @@ class Carbon_Twitter {
 	/**
 	 * Raises an exception if Verbose mode is turned on.
 	 *
-	 * @access protected
+	 * @access public
+	 * @static
 	 *
 	 * @param  string  $message
 	 *
 	 * @return void
 	 */
-	protected function maybe_raise_error( $message, $code = 0 ) {
+	public static function maybe_raise_error( $message, $code = 0 ) {
 		if ( static::$verbose ) {
 			throw new Carbon_Twitter_Exception( $message, $code );
 		}
