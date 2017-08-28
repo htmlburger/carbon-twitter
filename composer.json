@@ -1,5 +1,5 @@
 {
-    "name": "htmlburger/twitter-helper",
+    "name": "htmlburger/carbon-twitter",
     "description": "Helper library for retrieving information from the Twitter API.",
     "keywords": ["twitter", "twitter feed", "feed"],
     "type": "library",
