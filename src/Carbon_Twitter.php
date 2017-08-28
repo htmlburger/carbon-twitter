@@ -218,6 +218,10 @@ class Carbon_Twitter {
 
 			if ( ! isset( $data->errors ) ) {
 				$this->get_cache_driver()->write( $cache_key, $data );
+			} else {
+				$error = $data->errors[0];
+
+				throw new Carbon_Twitter_Exception( $error->message, $error->code );
 			}
 
 			return $this->process_data( $data );

@@ -108,7 +108,7 @@ function carbon_twitter_is_widget_registered() {
  * @return boolean
  */
 function carbon_twitter_is_widget_activated() {
-	return is_active_widget( false, false, 'carbon_fields_carbon_twitter_widget', true );
+	return is_active_widget( false, false, 'carbon_fields_carbon_twitter_feed_widget', true );
 }
 
 /**
@@ -133,7 +133,7 @@ function carbon_twitter_maybe_show_missing_configuration_notice() {
 		<p>
 			<?php
 			printf(
-				__( "You've inserted a \"Latest Tweets\" widget, but it will not work unless you configure your twitter settings. In order to do that, go to %sTheme Options &raquo; Twitter Settings%s", 'carbon-twitter' ),
+				__( "You've inserted the <strong>Carbon Twitter Feed</strong> widget, but it will not work unless you configure your twitter settings. In order to do that, go to %sTheme Options &raquo; Twitter Settings%s", 'carbon-twitter' ),
 				'<a href="' . admin_url( '/admin.php?page=crb_carbon_fields_container_twitter_settings.php' ) . '">',
 				'</a>'
 			);
