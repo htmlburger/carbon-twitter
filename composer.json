@@ -1,6 +1,7 @@
 {
     "name": "htmlburger/twitter-helper",
     "description": "Helper library for retrieving information from the Twitter API.",
+    "keywords": ["twitter", "twitter feed", "feed"],
     "type": "library",
     "license": "GPL-2.0",
     "authors": [
@@ -10,6 +11,7 @@
         }
     ],
     "require": {
+        "php": ">=5.3",
         "j7mbo/twitter-api-php": "^1.0"
     },
     "autoload": {
