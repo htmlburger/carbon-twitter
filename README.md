@@ -27,7 +27,7 @@ Carbon_Twitter::config( array(
   'cache_candidates' => [ 'WordPress', 'File' ],
 ) );
 
-$tweets = Carbon_Twitter::get_tweets( 'cnn', 5 );
+$tweets = Carbon_Twitter::get_tweets( 'wordpress', 5 );
 
 foreach ( $tweets as $tweet ) {
   echo $tweet->text;
@@ -49,7 +49,7 @@ carbon_twitter_set_config( array(
   'cache_drivers'    => [ 'WordPress', 'File' ],
 ) );
 
-$tweets = carbon_twitter_get_tweets( 'cnn', 5 );
+$tweets = carbon_twitter_get_tweets( 'wordpress', 5 );
 
 foreach ( $tweets as $tweet ) {
   echo $tweet->text;
